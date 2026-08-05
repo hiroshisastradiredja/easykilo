@@ -1,360 +1,475 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EasyKilo Laundry - Laundry Kiloan Bintaro</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --primary:#1e40af;
-    --accent:#14b8a6;
-    --foreground:#1f2937;
-    --muted-foreground:#6b7280;
-    --border:#e5e7eb;
-  }
-  body{font-family:'Inter',ui-sans-serif,system-ui,sans-serif;color:var(--foreground);}
-  .btn-accent{background:var(--accent);}
-  .btn-accent:hover{background:#0d9488;}
-  .text-primary{color:var(--primary);}
-  .bg-primary{background:var(--primary);}
-  .grad-primary-accent{background:linear-gradient(90deg,var(--primary),var(--accent));}
-  .grad-hero{background:linear-gradient(90deg,#2563eb,var(--accent));}
-</style>
-</head>
-<body class="bg-white">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Header -->
-<header class="sticky top-0 z-50 bg-white border-b border-gray-200">
-  <div class="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
-    <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663342687647/k55oYWnVLdCaBTB82cTr8m/EasyKiloLogo_3e64c313.png" alt="EasyKilo Laundry Logo" class="h-10 w-auto">
-    <a href="https://wa.me/6281994382070?text=Halo%20EasyKilo%20Laundry%2C%20saya%20ingin%20memesan%20layanan%20laundry."
-       class="btn-accent text-white font-semibold px-5 py-2.5 rounded-full flex items-center gap-2 text-sm">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.3-.4.1-.2 0-.3 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.4 3.8 3.4.5.2.9.4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.4-.3z"/></svg>
+<title>EasyKilo Laundry — Laundry Kiloan Bintaro Gratis Antar Jemput</title>
+<meta name="description" content="Laundry kiloan Bintaro mulai Rp 4.000/kg dengan gratis antar jemput. Dipisah tiap pelanggan, bersih & wangi. Melayani Bintaro, Pondok Aren, Jurang Mangu & sekitarnya.">
+<meta name="theme-color" content="#1e40af">
+
+<!-- Ganti dengan domain final kamu setelah terhubung di Vercel -->
+<link rel="canonical" href="https://easykilolaundry.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="id_ID">
+<meta property="og:site_name" content="EasyKilo Laundry">
+<meta property="og:title" content="EasyKilo Laundry — Laundry Kiloan Bintaro Gratis Antar Jemput">
+<meta property="og:description" content="Laundry kiloan mulai Rp 4.000/kg, gratis antar jemput, dipisah tiap pelanggan. Area Bintaro & Pondok Aren.">
+<meta property="og:url" content="https://easykilolaundry.com/">
+<meta property="og:image" content="https://easykilolaundry.com/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/assets/logo.webp" type="image/webp">
+<link rel="apple-touch-icon" href="/assets/logo.webp">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="/assets/storefront.webp">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DryCleaningOrLaundry",
+  "name": "EasyKilo Laundry",
+  "description": "Laundry kiloan dan satuan di Bintaro dengan gratis antar jemput. Proses dipisah untuk setiap pelanggan.",
+  "url": "https://easykilolaundry.com/",
+  "image": "https://easykilolaundry.com/assets/og-image.jpg",
+  "telephone": "+6281994382070",
+  "priceRange": "Rp 4.000 - Rp 15.000",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Jl. Masjid Baiturrahim No.116, Pd. Karya",
+    "addressLocality": "Kec. Pondok Aren",
+    "addressRegion": "Banten",
+    "postalCode": "15225",
+    "addressCountry": "ID"
+  },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+    "opens": "07:00",
+    "closes": "18:00"
+  }],
+  "areaServed": [
+    "Bintaro Jaya","Pondok Aren","Jurang Mangu",
+    "Pondok Jaya","Pondok Karya","Pondok Pucung"
+  ],
+  "sameAs": ["https://www.instagram.com/easykilo/"]
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Lompat ke konten utama</a>
+
+<header class="header">
+  <div class="container header__inner">
+    <a href="/" aria-label="EasyKilo Laundry — beranda">
+      <img class="header__logo" src="/assets/logo.webp" alt="EasyKilo Laundry" width="150" height="40">
+    </a>
+
+    <nav class="nav" aria-label="Navigasi utama">
+      <a href="#layanan">Layanan</a>
+      <a href="#harga">Harga</a>
+      <a href="#area">Area</a>
+      <a href="#cara-kerja">Cara Kerja</a>
+      <a href="#lokasi">Lokasi</a>
+    </nav>
+
+    <a class="btn btn--wa btn--pill"
+       href="https://wa.me/6281994382070?text=Halo%20EasyKilo%20Laundry%2C%20saya%20ingin%20memesan%20layanan%20laundry."
+       target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.3-.4.1-.2 0-.3 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.4 3.8 3.4.5.2.9.4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.4-.3z"/></svg>
       Chat WhatsApp
     </a>
   </div>
 </header>
 
-<!-- Hero -->
-<section class="bg-slate-50">
-  <div class="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
-    <div>
-      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6">Laundry Kiloan Bintaro dengan Gratis Antar Jemput</h1>
-      <p class="text-gray-600 text-lg mb-6">EasyKilo Laundry melayani laundry kiloan dan satuan dengan proses dipisah untuk setiap pelanggan, sehingga lebih higienis, bersih, dan aman.</p>
-      <div class="space-y-3 mb-6">
-        <div class="flex items-center gap-3 bg-white border border-gray-200 rounded-full px-5 py-3">
-          <span class="text-teal-500">&#10003;</span><span class="font-medium">Gratis Antar Jemput</span>
-        </div>
-        <div class="flex items-center gap-3 bg-white border border-gray-200 rounded-full px-5 py-3">
-          <span class="text-teal-500">&#10003;</span><span class="font-medium">Dipisah Tiap Pelanggan</span>
-        </div>
-        <div class="flex items-center gap-3 bg-white border border-gray-200 rounded-full px-5 py-3">
-          <span class="text-teal-500">&#10003;</span><span class="font-medium">Bersih &amp; Wangi</span>
-        </div>
-      </div>
-      <a href="https://wa.me/6281994382070?text=Halo%20EasyKilo%20Laundry%2C%20saya%20ingin%20memesan%20layanan%20laundry."
-         class="btn-accent inline-block text-white font-semibold px-8 py-4 rounded-xl">Order Laundry via WhatsApp</a>
-    </div>
-    <div>
-      <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663342687647/k55oYWnVLdCaBTB82cTr8m/image0_514cd879.jpeg"
-           alt="EasyKilo Laundry Storefront Bintaro" class="rounded-2xl w-full object-cover shadow-lg">
-    </div>
-  </div>
-</section>
+<main id="main">
 
-<!-- Testimonials -->
-<section class="max-w-4xl mx-auto px-6 py-20 text-center">
-  <h2 class="text-3xl md:text-4xl font-extrabold mb-3">Kepuasan Pelanggan Kami</h2>
-  <p class="text-gray-500 mb-12">Review pelanggan yang telah mempercayai EasyKilo Laundry</p>
-  <div class="space-y-6 text-left">
-    <div class="border border-gray-200 rounded-2xl p-6">
-      <div class="text-yellow-400 text-lg mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <p class="italic text-gray-700 mb-3">"Senang ..jadi punya langganan Laundry baru yg servisnya super duper kilat...cucian dijemput dan diantar,harganya bersahabat&#128525;"</p>
-      <p class="font-semibold">– Trisna (Google Review)</p>
-    </div>
-    <div class="border border-gray-200 rounded-2xl p-6">
-      <div class="text-yellow-400 text-lg mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <p class="italic text-gray-700 mb-3">"Cuciannya bersih dan wangiiii. Rekomen buat yang ada di daerah Bintaro&#128077;"</p>
-      <p class="font-semibold">– Mayang (Google Review)</p>
-    </div>
-    <div class="border border-gray-200 rounded-2xl p-6">
-      <div class="text-yellow-400 text-lg mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <p class="italic text-gray-700 mb-3">"Suka karena laundry tidak dicampur dengan pelanggan lain."</p>
-      <p class="font-semibold">– Indira (Google Review)</p>
-    </div>
-  </div>
-</section>
-
-<!-- Services -->
-<section class="bg-slate-50">
-  <div class="max-w-6xl mx-auto px-6 py-20 text-center">
-    <h2 class="text-3xl md:text-4xl font-extrabold mb-3">Layanan EasyKilo Laundry</h2>
-    <p class="text-gray-500 mb-12">Kami menyediakan berbagai layanan laundry sesuai kebutuhan Anda</p>
-    <div class="grid md:grid-cols-2 gap-6">
-      <div class="bg-white rounded-2xl p-8">
-        <div class="text-5xl mb-4">&#129530;</div>
-        <h3 class="text-xl font-bold mb-2">Laundry Kiloan</h3>
-        <p class="text-gray-500">Cuci kiloan dengan harga terjangkau, diproses terpisah untuk setiap pelanggan.</p>
-      </div>
-      <div class="bg-white rounded-2xl p-8">
-        <div class="text-5xl mb-4">&#128084;</div>
-        <h3 class="text-xl font-bold mb-2">Laundry Satuan</h3>
-        <p class="text-gray-500">Layanan laundry satuan untuk kebutuhan khusus dengan perawatan premium.</p>
-      </div>
-      <div class="bg-white rounded-2xl p-8">
-        <div class="text-5xl mb-4">&#128230;</div>
-        <h3 class="text-xl font-bold mb-2">Cuci Lipat</h3>
-        <p class="text-gray-500">Hanya cuci tanpa setrika, hasil rapi dan wangi dengan harga hemat.</p>
-      </div>
-      <div class="bg-white rounded-2xl p-8">
-        <div class="text-5xl mb-4">&#128293;</div>
-        <h3 class="text-xl font-bold mb-2">Setrika Rapi</h3>
-        <p class="text-gray-500">Setrika profesional dengan hasil rapi dan tahan lama.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Pricing -->
-<section class="bg-gradient-to-b from-white to-teal-50">
-  <div class="max-w-4xl mx-auto px-6 py-20 text-center">
-    <h2 class="text-3xl md:text-4xl font-extrabold mb-3">Harga Terjangkau &amp; Kompetitif</h2>
-    <p class="text-gray-500 mb-12">Layanan berkualitas dengan harga yang ramah di kantong</p>
-
-    <div class="bg-white rounded-3xl shadow-sm p-8 text-left space-y-10">
-
-      <!-- kiloan -->
-      <div class="bg-slate-50 rounded-2xl p-6">
-        <h3 class="text-xl font-bold text-center mb-1">Laundry Kiloan</h3>
-        <p class="text-gray-500 text-center mb-4">Per kilogram</p>
-        <div class="grad-hero rounded-xl text-white text-center py-8 mb-4">
-          <div class="text-4xl font-extrabold">Rp 4.000</div>
-          <div class="text-sm opacity-90">Mulai dari</div>
-        </div>
-        <ul class="space-y-2 text-gray-700">
-          <li class="flex gap-2 items-center"><span class="text-teal-500">&#10003;</span>Minimum order 3 kg</li>
-          <li class="flex gap-2 items-center"><span class="text-teal-500">&#10003;</span>Dipisah per pelanggan</li>
-          <li class="flex gap-2 items-center"><span class="text-teal-500">&#10003;</span>Gratis antar jemput</li>
-          <li class="flex gap-2 items-center"><span class="text-teal-500">&#10003;</span>Bersih &amp; wangi</li>
-        </ul>
-      </div>
-
-      <!-- satuan -->
-      <div class="bg-slate-50 rounded-2xl p-6">
-        <h3 class="text-xl font-bold text-center mb-1">Laundry Satuan</h3>
-        <p class="text-gray-500 text-center mb-4">Pakaian khusus</p>
-        <div class="grad-hero rounded-xl text-white text-center py-8 mb-4">
-          <div class="text-4xl font-extrabold">Rp 15.000</div>
-          <div class="text-sm opacity-90">Mulai dari</div>
-        </div>
-        <ul class="space-y-2 text-gray-700">
-          <li class="flex gap-2 items-center"><span class="text-teal-500">&#10003;</span>Perawatan premium</li>
-          <li class="flex gap-2 items-center"><span class="text-teal-500">&#10003;</span>Pakaian sensitif</li>
-          <li class="flex gap-2 items-center"><span class="text-teal-500">&#10003;</span>Konsultasi gratis</li>
-        </ul>
-      </div>
-
-      <!-- waktu pengerjaan -->
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero__grid">
       <div>
-        <h3 class="text-xl font-bold text-center mb-6">Waktu Pengerjaan</h3>
-        <div class="grid sm:grid-cols-3 gap-4">
-          <div class="border border-gray-200 rounded-xl text-center py-6">
-            <div class="text-3xl mb-2">&#9201;&#65039;</div>
-            <p class="font-semibold">Reguler</p>
-            <p class="text-teal-500 font-bold text-lg">3 hari</p>
-          </div>
-          <div class="border border-gray-200 rounded-xl text-center py-6">
-            <div class="text-3xl mb-2">&#9889;</div>
-            <p class="font-semibold">Cepat</p>
-            <p class="text-teal-500 font-bold text-lg">1 hari</p>
-          </div>
-          <div class="border border-gray-200 rounded-xl text-center py-6">
-            <div class="text-3xl mb-2">&#128640;</div>
-            <p class="font-semibold">Kilat</p>
-            <p class="text-teal-500 font-bold text-lg">Same Day</p>
-          </div>
-        </div>
-      </div>
+        <h1 class="hero__title">Laundry Kiloan Bintaro dengan Gratis Antar Jemput</h1>
+        <p class="hero__lead">EasyKilo Laundry melayani laundry kiloan dan satuan dengan proses dipisah untuk setiap pelanggan, sehingga lebih higienis, bersih, dan aman.</p>
 
-      <div class="grid sm:grid-cols-2 gap-6">
-        <div>
-          <h3 class="font-bold mb-3">Metode Pembayaran</h3>
-          <div class="flex gap-6">
-            <div class="text-center"><div class="text-2xl">&#128241;</div><p class="text-sm">QRIS</p></div>
-            <div class="text-center"><div class="text-2xl">&#127974;</div><p class="text-sm">Transfer Bank</p></div>
-          </div>
-        </div>
-        <div>
-          <h3 class="font-bold mb-3">Jam Operasional</h3>
-          <p class="text-sm text-gray-600">Senin - Sabtu: <span class="font-semibold text-gray-900">07:00 - 18:00</span></p>
-          <p class="text-sm text-gray-600">Minggu: <span class="font-semibold text-gray-900">Tutup</span></p>
-        </div>
-      </div>
-
-      <div class="bg-blue-50 border border-blue-100 rounded-2xl p-6">
-        <h3 class="text-primary font-bold flex items-center gap-2 mb-3">&#128666; Syarat &amp; Ketentuan Antar Jemput</h3>
-        <ul class="space-y-2 text-gray-700 text-sm">
-          <li class="flex gap-2"><span class="text-teal-500 shrink-0">&#10003;</span><span>Gratis antar jemput untuk pesanan minimal <b>Rp 35.000</b>. Pesanan di bawah Rp 35.000 dikenakan biaya jemput <b>Rp 5.000</b>.</span></li>
-          <li class="flex gap-2"><span class="text-teal-500 shrink-0">&#10003;</span><span>Gratis antar jemput untuk jarak maksimal <b>5 km</b> dari toko. Jarak lebih dari 5 km dikenakan biaya tambahan <b>Rp 3.000/km</b>.</span></li>
+        <ul class="pills">
+          <li class="pill"><svg class="check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Gratis Antar Jemput</li>
+          <li class="pill"><svg class="check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Dipisah Tiap Pelanggan</li>
+          <li class="pill"><svg class="check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Bersih &amp; Wangi</li>
         </ul>
+
+        <a class="btn btn--wa hero__cta"
+           href="https://wa.me/6281994382070?text=Halo%20EasyKilo%20Laundry%2C%20saya%20ingin%20memesan%20layanan%20laundry."
+           target="_blank" rel="noopener">Order Laundry via WhatsApp</a>
       </div>
 
-      <div class="text-center">
-        <p class="text-gray-600 mb-4">Ingin tahu lebih detail atau punya pertanyaan?</p>
-        <a href="https://wa.me/6281994382070?text=Halo%20EasyKilo%20Laundry%2C%20saya%20ingin%20memesan%20layanan%20laundry."
-           class="btn-accent inline-block text-white font-semibold px-8 py-4 rounded-xl">Tanya Harga via WhatsApp</a>
+      <div class="hero__media">
+        <img src="/assets/storefront.webp"
+             alt="Toko EasyKilo Laundry di Bintaro dengan spanduk laundry kiloan mulai Rp 4.000/kg"
+             width="1536" height="2048" fetchpriority="high">
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Why choose us -->
-<section class="max-w-6xl mx-auto px-6 py-20 text-center">
-  <h2 class="text-3xl md:text-4xl font-extrabold mb-3">Mengapa Pilih EasyKilo?</h2>
-  <p class="text-gray-500 mb-12">Keunggulan yang membedakan kami dari kompetitor</p>
-  <div class="grid md:grid-cols-3 gap-6 text-left">
-    <div class="border border-gray-200 rounded-2xl p-8">
-      <div class="text-teal-500 text-3xl mb-4">&#128100;</div>
-      <h3 class="font-bold text-lg mb-2">Laundry Dipisah Tiap Pelanggan</h3>
-      <p class="text-gray-500">Tidak dicampur dengan order lain — menjamin kebersihan dan keamanan pakaian Anda.</p>
-    </div>
-    <div class="border border-gray-200 rounded-2xl p-8">
-      <div class="text-teal-500 text-3xl mb-4">&#128269;</div>
-      <h3 class="font-bold text-lg mb-2">Teliti Sebelum Mencuci</h3>
-      <p class="text-gray-500">Setiap pakaian diperiksa terlebih dahulu — kantong, noda, dan kondisi pakaian dicek sebelum proses cuci.</p>
-    </div>
-    <div class="border border-gray-200 rounded-2xl p-8">
-      <div class="text-teal-500 text-3xl mb-4">&#128666;</div>
-      <h3 class="font-bold text-lg mb-2">Gratis Antar Jemput</h3>
-      <p class="text-gray-500">Praktis tanpa perlu keluar rumah — kami yang menjemput dan mengantarkan laundry Anda.</p>
-    </div>
-  </div>
-</section>
+  <!-- Testimonials -->
+  <section class="section">
+    <div class="container container--narrow">
+      <div class="section__head">
+        <h2 class="section__title">Kepuasan Pelanggan Kami</h2>
+        <p class="section__sub">Review pelanggan yang telah mempercayai EasyKilo Laundry</p>
+      </div>
 
-<!-- Free pickup banner -->
-<section class="bg-primary text-white">
-  <div class="max-w-6xl mx-auto px-6 py-16">
-    <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Gratis Antar Jemput ke Rumah Anda</h2>
-    <p class="text-blue-100 mb-6 max-w-2xl">Tim EasyKilo siap menjemput dan mengantarkan laundry Anda. Tidak perlu keluar rumah — cukup order via WhatsApp dan kami yang datang.</p>
-    <ul class="space-y-3">
-      <li class="flex gap-2 items-center"><span class="text-teal-300">&#10003;</span>Penjemputan tepat waktu</li>
-      <li class="flex gap-2 items-center"><span class="text-teal-300">&#10003;</span>Pengiriman kembali ke rumah Anda</li>
-      <li class="flex gap-2 items-center"><span class="text-teal-300">&#10003;</span>Area Bintaro, Pondok Aren &amp; sekitarnya</li>
-    </ul>
-  </div>
-</section>
+      <div class="grid">
+        <figure class="quote">
+          <div class="quote__stars" aria-label="5 dari 5 bintang">★★★★★</div>
+          <blockquote class="quote__text">"Senang ..jadi punya langganan Laundry baru yg servisnya super duper kilat...cucian dijemput dan diantar, harganya bersahabat 😍"</blockquote>
+          <figcaption class="quote__author">– Trisna (Google Review)</figcaption>
+        </figure>
 
-<!-- Service area -->
-<section class="bg-slate-50">
-  <div class="max-w-4xl mx-auto px-6 py-20 text-center">
-    <h2 class="text-3xl md:text-4xl font-extrabold mb-3">Area Layanan Kami</h2>
-    <p class="text-gray-500 mb-10">Gratis antar jemput untuk area berikut</p>
-    <div class="grid sm:grid-cols-2 gap-4 text-left">
-      <div class="flex items-center gap-3 bg-blue-50 rounded-xl px-5 py-4"><span class="text-primary">&#128205;</span><span class="font-medium">Bintaro Jaya</span></div>
-      <div class="flex items-center gap-3 bg-blue-50 rounded-xl px-5 py-4"><span class="text-primary">&#128205;</span><span class="font-medium">Pondok Aren</span></div>
-      <div class="flex items-center gap-3 bg-blue-50 rounded-xl px-5 py-4"><span class="text-primary">&#128205;</span><span class="font-medium">Jurang Mangu</span></div>
-      <div class="flex items-center gap-3 bg-blue-50 rounded-xl px-5 py-4"><span class="text-primary">&#128205;</span><span class="font-medium">Pondok Jaya</span></div>
-      <div class="flex items-center gap-3 bg-blue-50 rounded-xl px-5 py-4"><span class="text-primary">&#128205;</span><span class="font-medium">Pondok Karya</span></div>
-      <div class="flex items-center gap-3 bg-blue-50 rounded-xl px-5 py-4"><span class="text-primary">&#128205;</span><span class="font-medium">Pondok Pucung</span></div>
-    </div>
-  </div>
-</section>
+        <figure class="quote">
+          <div class="quote__stars" aria-label="5 dari 5 bintang">★★★★★</div>
+          <blockquote class="quote__text">"Cuciannya bersih dan wangiiii. Rekomen buat yang ada di daerah Bintaro 👍"</blockquote>
+          <figcaption class="quote__author">– Mayang (Google Review)</figcaption>
+        </figure>
 
-<!-- How it works -->
-<section class="max-w-5xl mx-auto px-6 py-20 text-center">
-  <h2 class="text-3xl md:text-4xl font-extrabold mb-3">Cara Kerja EasyKilo</h2>
-  <p class="text-gray-500 mb-12">Proses mudah dan cepat dalam 4 langkah</p>
-  <div class="space-y-6 text-center">
-    <div class="border-2 border-teal-400 rounded-2xl p-8">
-      <div class="w-12 h-12 mx-auto mb-4 rounded-full btn-accent text-white font-bold flex items-center justify-center">1</div>
-      <h3 class="font-bold text-lg mb-2">Order via WhatsApp</h3>
-      <p class="text-gray-500">Hubungi EasyKilo untuk pickup laundry Anda.</p>
+        <figure class="quote">
+          <div class="quote__stars" aria-label="5 dari 5 bintang">★★★★★</div>
+          <blockquote class="quote__text">"Suka karena laundry tidak dicampur dengan pelanggan lain."</blockquote>
+          <figcaption class="quote__author">– Indira (Google Review)</figcaption>
+        </figure>
+      </div>
     </div>
-    <div class="border-2 border-teal-400 rounded-2xl p-8">
-      <div class="w-12 h-12 mx-auto mb-4 rounded-full btn-accent text-white font-bold flex items-center justify-center">2</div>
-      <h3 class="font-bold text-lg mb-2">Pickup Laundry</h3>
-      <p class="text-gray-500">Tim EasyKilo menjemput laundry Anda dari rumah.</p>
-    </div>
-    <div class="border-2 border-teal-400 rounded-2xl p-8">
-      <div class="w-12 h-12 mx-auto mb-4 rounded-full btn-accent text-white font-bold flex items-center justify-center">3</div>
-      <h3 class="font-bold text-lg mb-2">Proses Laundry</h3>
-      <p class="text-gray-500">Laundry dicuci dan diproses secara higienis dan profesional.</p>
-    </div>
-    <div class="border-2 border-teal-400 rounded-2xl p-8">
-      <div class="w-12 h-12 mx-auto mb-4 rounded-full btn-accent text-white font-bold flex items-center justify-center">4</div>
-      <h3 class="font-bold text-lg mb-2">Delivery</h3>
-      <p class="text-gray-500">Laundry bersih diantar kembali ke rumah Anda.</p>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- CTA -->
-<section class="grad-hero text-white text-center">
-  <div class="max-w-3xl mx-auto px-6 py-20">
-    <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Capek Cuci Baju? EasyKilo Laundry Solusinya.</h2>
-    <p class="text-blue-50 mb-8">Percayakan laundry Anda kepada kami dan nikmati kemudahan serta kualitas terbaik.</p>
-    <a href="https://wa.me/6281994382070?text=Halo%20EasyKilo%20Laundry%2C%20saya%20ingin%20memesan%20layanan%20laundry."
-       class="btn-accent inline-flex items-center gap-2 text-white font-semibold px-8 py-4 rounded-xl">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z"/></svg>
-      Order Sekarang via WhatsApp
-    </a>
-  </div>
-</section>
+  <!-- Services -->
+  <section class="section section--soft" id="layanan">
+    <div class="container">
+      <div class="section__head">
+        <h2 class="section__title">Layanan EasyKilo Laundry</h2>
+        <p class="section__sub">Kami menyediakan berbagai layanan laundry sesuai kebutuhan Anda</p>
+      </div>
 
-<!-- Location -->
-<section class="max-w-4xl mx-auto px-6 py-20 text-center">
-  <h2 class="text-3xl md:text-4xl font-extrabold mb-3">Lokasi Kami</h2>
-  <p class="text-gray-500 mb-8">Kunjungi atau hubungi kami di Bintaro, Tangerang Selatan</p>
-  <div class="rounded-2xl overflow-hidden border border-gray-200 mb-6">
-    <iframe
-      title="Lokasi EasyKilo Laundry"
-      src="https://www.google.com/maps?q=Jl.+Masjid+Baiturrahim+No.116,+Pd.+Karya,+Kec.+Pd.+Aren,+Kota+Tangerang+Selatan,+Banten+15225&output=embed"
-      width="100%" height="320" style="border:0" loading="lazy"></iframe>
-  </div>
-  <a href="https://maps.app.goo.gl/ArpCv793omY31z9A6"
-     class="bg-primary inline-flex items-center gap-2 text-white font-semibold px-8 py-4 rounded-xl">
-    &#128205; Buka di Google Maps
-  </a>
-</section>
-
-<!-- Footer -->
-<footer class="bg-slate-900 text-gray-300">
-  <div class="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-10">
-    <div>
-      <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663342687647/k55oYWnVLdCaBTB82cTr8m/EasyKiloLogo_3e64c313.png" alt="EasyKilo Laundry Logo" class="h-10 w-auto mb-4">
-      <p class="text-sm text-gray-400">Laundry kiloan Bintaro dengan gratis antar jemput. Kami berkomitmen memberikan layanan terbaik dengan harga terjangkau.</p>
+      <div class="grid grid--2">
+        <article class="card card--center">
+          <div class="card__icon">🧺</div>
+          <h3 class="card__title">Laundry Kiloan</h3>
+          <p class="card__text">Cuci kiloan dengan harga terjangkau, diproses terpisah untuk setiap pelanggan.</p>
+        </article>
+        <article class="card card--center">
+          <div class="card__icon">👔</div>
+          <h3 class="card__title">Laundry Satuan</h3>
+          <p class="card__text">Layanan laundry satuan untuk kebutuhan khusus dengan perawatan premium.</p>
+        </article>
+        <article class="card card--center">
+          <div class="card__icon">📦</div>
+          <h3 class="card__title">Cuci Lipat</h3>
+          <p class="card__text">Hanya cuci tanpa setrika, hasil rapi dan wangi dengan harga hemat.</p>
+        </article>
+        <article class="card card--center">
+          <div class="card__icon">🔥</div>
+          <h3 class="card__title">Setrika Rapi</h3>
+          <p class="card__text">Setrika profesional dengan hasil rapi dan tahan lama.</p>
+        </article>
+      </div>
     </div>
-    <div>
-      <h3 class="text-white font-bold mb-4">Layanan Kami</h3>
-      <ul class="space-y-2 text-sm">
-        <li><a href="#" class="hover:text-white">Laundry Kiloan</a></li>
-        <li><a href="#" class="hover:text-white">Laundry Satuan</a></li>
-        <li><a href="#" class="hover:text-white">Cuci Lipat</a></li>
-        <li><a href="#" class="hover:text-white">Setrika Rapi</a></li>
+  </section>
+
+  <!-- Pricing -->
+  <section class="section section--tealfade" id="harga">
+    <div class="container container--narrow">
+      <div class="section__head">
+        <h2 class="section__title">Harga Terjangkau &amp; Kompetitif</h2>
+        <p class="section__sub">Layanan berkualitas dengan harga yang ramah di kantong</p>
+      </div>
+
+      <div class="pricing">
+        <div class="plan">
+          <h3 class="plan__name">Laundry Kiloan</h3>
+          <p class="plan__for">Per kilogram</p>
+          <div class="plan__price">
+            <div class="plan__amount">Rp 4.000</div>
+            <div class="plan__from">Mulai dari</div>
+          </div>
+          <ul class="ticks">
+            <li><svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Minimum order 3 kg</span></li>
+            <li><svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Dipisah per pelanggan</span></li>
+            <li><svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Gratis antar jemput</span></li>
+            <li><svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Bersih &amp; wangi</span></li>
+          </ul>
+        </div>
+
+        <div class="plan">
+          <h3 class="plan__name">Laundry Satuan</h3>
+          <p class="plan__for">Pakaian khusus</p>
+          <div class="plan__price">
+            <div class="plan__amount">Rp 15.000</div>
+            <div class="plan__from">Mulai dari</div>
+          </div>
+          <ul class="ticks">
+            <li><svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Perawatan premium</span></li>
+            <li><svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Pakaian sensitif</span></li>
+            <li><svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Konsultasi gratis</span></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="subhead">Waktu Pengerjaan</h3>
+          <div class="grid grid--3">
+            <div class="speed">
+              <div class="speed__icon">⏱️</div>
+              <div class="speed__name">Reguler</div>
+              <div class="speed__value">3 hari</div>
+            </div>
+            <div class="speed">
+              <div class="speed__icon">⚡</div>
+              <div class="speed__name">Cepat</div>
+              <div class="speed__value">1 hari</div>
+            </div>
+            <div class="speed">
+              <div class="speed__icon">🚀</div>
+              <div class="speed__name">Kilat</div>
+              <div class="speed__value">Same Day</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-grid">
+          <div>
+            <h3 class="info__title">Metode Pembayaran</h3>
+            <div class="pay">
+              <div class="pay__item"><div class="pay__icon">📱</div><div class="pay__label">QRIS</div></div>
+              <div class="pay__item"><div class="pay__icon">🏦</div><div class="pay__label">Transfer Bank</div></div>
+            </div>
+          </div>
+          <div>
+            <h3 class="info__title">Jam Operasional</h3>
+            <p class="hours">Senin – Sabtu: <strong>07:00 – 18:00</strong></p>
+            <p class="hours">Minggu: <strong>Tutup</strong></p>
+          </div>
+        </div>
+
+        <div class="terms">
+          <h3 class="terms__title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 17h4V5H2v12h3m5 0a2 2 0 1 0 4 0m-4 0a2 2 0 1 1 4 0m-9 0a2 2 0 1 0 4 0m-4 0a2 2 0 1 1 4 0m10-5h5l3 4v1h-3m-5-5v5"/></svg>
+            Syarat &amp; Ketentuan Antar Jemput
+          </h3>
+          <ul class="terms__list">
+            <li>
+              <svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              <span>Gratis antar jemput untuk pesanan minimal <strong>Rp 35.000</strong>. Pesanan di bawah Rp 35.000 dikenakan biaya jemput <strong>Rp 5.000</strong>.</span>
+            </li>
+            <li>
+              <svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              <span>Gratis antar jemput untuk jarak maksimal <strong>5 km</strong> dari toko. Jarak lebih dari 5 km dikenakan biaya tambahan <strong>Rp 3.000/km</strong>.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="closing">
+          <p>Ingin tahu lebih detail atau punya pertanyaan?</p>
+          <a class="btn btn--wa"
+             href="https://wa.me/6281994382070?text=Halo%20EasyKilo%20Laundry%2C%20saya%20ingin%20bertanya%20soal%20harga%20laundry."
+             target="_blank" rel="noopener">Tanya Harga via WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why us -->
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <h2 class="section__title">Mengapa Pilih EasyKilo?</h2>
+        <p class="section__sub">Keunggulan yang membedakan kami dari kompetitor</p>
+      </div>
+
+      <div class="grid grid--3">
+        <article class="card">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg>
+          <h3 class="card__title" style="margin-top:1rem">Laundry Dipisah Tiap Pelanggan</h3>
+          <p class="card__text">Tidak dicampur dengan order lain — menjamin kebersihan dan keamanan pakaian Anda.</p>
+        </article>
+
+        <article class="card">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <h3 class="card__title" style="margin-top:1rem">Teliti Sebelum Mencuci</h3>
+          <p class="card__text">Setiap pakaian diperiksa terlebih dahulu — kantong, noda, dan kondisi pakaian dicek sebelum proses cuci.</p>
+        </article>
+
+        <article class="card">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" aria-hidden="true"><path d="M10 17h4V5H2v12h3m5 0a2 2 0 1 0 4 0m-4 0a2 2 0 1 1 4 0m-9 0a2 2 0 1 0 4 0m-4 0a2 2 0 1 1 4 0m10-5h5l3 4v1h-3m-5-5v5"/></svg>
+          <h3 class="card__title" style="margin-top:1rem">Gratis Antar Jemput</h3>
+          <p class="card__text">Praktis tanpa perlu keluar rumah — kami yang menjemput dan mengantarkan laundry Anda.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pickup banner -->
+  <section class="banner">
+    <div class="container">
+      <h2>Gratis Antar Jemput ke Rumah Anda</h2>
+      <p>Tim EasyKilo siap menjemput dan mengantarkan laundry Anda. Tidak perlu keluar rumah — cukup order via WhatsApp dan kami yang datang.</p>
+      <ul>
+        <li><svg class="check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Penjemputan tepat waktu</li>
+        <li><svg class="check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Pengiriman kembali ke rumah Anda</li>
+        <li><svg class="check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Area Bintaro, Pondok Aren &amp; sekitarnya</li>
       </ul>
     </div>
+  </section>
+
+  <!-- Service areas -->
+  <section class="section section--soft" id="area">
+    <div class="container container--narrow">
+      <div class="section__head">
+        <h2 class="section__title">Area Layanan Kami</h2>
+        <p class="section__sub">Gratis antar jemput untuk area berikut</p>
+      </div>
+
+      <ul class="areas">
+        <li class="area"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Bintaro Jaya</li>
+        <li class="area"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Pondok Aren</li>
+        <li class="area"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Jurang Mangu</li>
+        <li class="area"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Pondok Jaya</li>
+        <li class="area"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Pondok Karya</li>
+        <li class="area"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Pondok Pucung</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section" id="cara-kerja">
+    <div class="container">
+      <div class="section__head">
+        <h2 class="section__title">Cara Kerja EasyKilo</h2>
+        <p class="section__sub">Proses mudah dan cepat dalam 4 langkah</p>
+      </div>
+
+      <ol class="steps">
+        <li class="step">
+          <div class="step__num">1</div>
+          <h3 class="step__title">Order via WhatsApp</h3>
+          <p class="step__text">Hubungi EasyKilo untuk pickup laundry Anda.</p>
+        </li>
+        <li class="step">
+          <div class="step__num">2</div>
+          <h3 class="step__title">Pickup Laundry</h3>
+          <p class="step__text">Tim EasyKilo menjemput laundry Anda dari rumah.</p>
+        </li>
+        <li class="step">
+          <div class="step__num">3</div>
+          <h3 class="step__title">Proses Laundry</h3>
+          <p class="step__text">Laundry dicuci dan diproses secara higienis dan profesional.</p>
+        </li>
+        <li class="step">
+          <div class="step__num">4</div>
+          <h3 class="step__title">Delivery</h3>
+          <p class="step__text">Laundry bersih diantar kembali ke rumah Anda.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container container--narrow">
+      <h2>Capek Cuci Baju? EasyKilo Laundry Solusinya.</h2>
+      <p>Percayakan laundry Anda kepada kami dan nikmati kemudahan serta kualitas terbaik.</p>
+      <a class="btn btn--wa"
+         href="https://wa.me/6281994382070?text=Halo%20EasyKilo%20Laundry%2C%20saya%20ingin%20memesan%20layanan%20laundry."
+         target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+        Order Sekarang via WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- Location -->
+  <section class="section" id="lokasi">
+    <div class="container container--narrow">
+      <div class="section__head">
+        <h2 class="section__title">Lokasi Kami</h2>
+        <p class="section__sub">Kunjungi atau hubungi kami di Bintaro, Tangerang Selatan</p>
+      </div>
+
+      <div class="map">
+        <iframe
+          title="Peta lokasi EasyKilo Laundry"
+          src="https://www.google.com/maps?q=Jl.+Masjid+Baiturrahim+No.116,+Pd.+Karya,+Kec.+Pd.+Aren,+Kota+Tangerang+Selatan,+Banten+15225&output=embed"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+      <div style="text-align:center">
+        <a class="btn btn--navy" href="https://maps.app.goo.gl/ArpCv793omY31z9A6" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          Buka di Google Maps
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__grid">
     <div>
-      <h3 class="text-white font-bold mb-4">Hubungi Kami</h3>
-      <p class="text-sm mb-2">
-        <a href="https://wa.me/6281994382070?text=Halo%20EasyKilo%20Laundry%2C%20saya%20ingin%20memesan%20layanan%20laundry." class="hover:text-white">+62 8199-4382-070</a>
-      </p>
-      <p class="text-sm mb-2">Jl. Masjid Baiturrahim No.116, Pd. Karya, Kec. Pd. Aren, Kota Tangerang Selatan, Banten 15225</p>
-      <p class="text-sm"><a href="https://www.instagram.com/easykilo/" class="hover:text-white">@easykilo</a></p>
+      <img class="footer__logo" src="/assets/logo.webp" alt="EasyKilo Laundry" width="150" height="40" loading="lazy">
+      <p class="footer__about">Laundry kiloan Bintaro dengan gratis antar jemput. Kami berkomitmen memberikan layanan terbaik dengan harga terjangkau.</p>
+    </div>
+
+    <div>
+      <h3>Layanan Kami</h3>
+      <ul class="footer__links">
+        <li><a href="#layanan">Laundry Kiloan</a></li>
+        <li><a href="#layanan">Laundry Satuan</a></li>
+        <li><a href="#layanan">Cuci Lipat</a></li>
+        <li><a href="#layanan">Setrika Rapi</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>Hubungi Kami</h3>
+      <ul class="footer__contact">
+        <li>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z"/></svg>
+          <a href="https://wa.me/6281994382070?text=Halo%20EasyKilo%20Laundry%2C%20saya%20ingin%20memesan%20layanan%20laundry." target="_blank" rel="noopener">+62 819-9438-2070</a>
+        </li>
+        <li>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Jl. Masjid Baiturrahim No.116, Pd. Karya, Kec. Pd. Aren, Kota Tangerang Selatan, Banten 15225</span>
+        </li>
+        <li>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+          <a href="https://www.instagram.com/easykilo/" target="_blank" rel="noopener">@easykilo</a>
+        </li>
+      </ul>
     </div>
   </div>
-  <div class="border-t border-slate-800">
-    <div class="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-gray-500">
-      <p>&copy; 2026 EasyKilo Laundry. Semua hak dilindungi.</p>
-      <div class="flex gap-4">
-        <a href="/privacy-policy" class="hover:text-white">Kebijakan Privasi</a>
-        <a href="/terms-of-service" class="hover:text-white">Syarat &amp; Ketentuan</a>
+
+  <div class="footer__bottom">
+    <div class="container footer__bottom-inner">
+      <p>© <span id="year">2026</span> EasyKilo Laundry. Semua hak dilindungi.</p>
+      <div class="footer__legal">
+        <a href="/privacy-policy">Kebijakan Privasi</a>
+        <a href="/terms-of-service">Syarat &amp; Ketentuan</a>
       </div>
     </div>
   </div>
 </footer>
 
+<a class="fab"
+   href="https://wa.me/6281994382070?text=Halo%20EasyKilo%20Laundry%2C%20saya%20ingin%20memesan%20layanan%20laundry."
+   target="_blank" rel="noopener" aria-label="Chat WhatsApp EasyKilo Laundry">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.3-.4.1-.2 0-.3 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.4 3.8 3.4.5.2.9.4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.4-.3z"/></svg>
+</a>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
