@@ -179,7 +179,7 @@ p { text-wrap: pretty; }
   justify-content: space-between;
   gap: 1rem;
 }
-.header__logo { height: 2.5rem; width: auto; }
+.header__logo { height: 3.5rem; width: auto; }
 
 .nav {
   display: none;
